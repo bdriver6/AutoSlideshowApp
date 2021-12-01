@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 // 許可されている
                 getContentsInfo()
-                syonin = true
             } else {
                 // 許可されていないので許可ダイアログを表示する
                 requestPermissions(
@@ -82,6 +81,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             null, // フィルタ用パラメータ
             null // ソート (nullソートなし）
         )
+
+        syonin = true
 
         if (cursor!!.moveToFirst()) {
             do {
